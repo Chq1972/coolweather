@@ -11,7 +11,14 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.coolweather.android.gson.Weather;
+import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class WeatherActivity extends AppCompatActivity {
     private ScrollView weatherLayout;
@@ -60,5 +67,16 @@ public class WeatherActivity extends AppCompatActivity {
     public void requestWeather(final String weatherId){
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" +
                 weatherId + "&Key=74f02ba7b6f44c2bb5558aae980783f6";
+        HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
     }
 }
