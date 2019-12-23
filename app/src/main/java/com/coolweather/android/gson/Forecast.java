@@ -10,7 +10,7 @@ public class Forecast {
     @SerializedName("cond")
     public More more;
 
-    private class Temperature {
+    public class Temperature {
         public String max;
         public String min;
     }
